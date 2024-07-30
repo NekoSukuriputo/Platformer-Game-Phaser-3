@@ -28,5 +28,12 @@ module.exports = merge(common, {
     filename: "[name].[contenthash].js",
     publicPath: "/",
   },
-  plugins: [new CleanWebpackPlugin()],
+  plugins: [
+    new CleanWebpackPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: "assets", to: "assets" }, // Copies 'assets' to 'public/assets'
+      ],
+    }),
+  ],
 });
